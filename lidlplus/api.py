@@ -211,7 +211,7 @@ class LidlPlusApi:
 
     def login(self, email, password, **kwargs):
         """Simulate app auth"""
-        browser = self._get_browser(headless=kwargs.get("headless", False))
+        browser = self._get_browser(headless=kwargs.get("headless", True))
         browser.get(self._register_link)
         wait = WebDriverWait(browser, 10)
         wait.until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="duple-button-block"]/button[1]/span'))).click()
